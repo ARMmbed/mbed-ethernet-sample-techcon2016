@@ -20,6 +20,9 @@
  * limitations under the License.
  */
 
+// Our device type
+#define MY_DEVICE_TYPE	"mbed-endpoint"
+
 // Include security.h
 #include "security.h"
 
