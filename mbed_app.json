@@ -1,0 +1,24 @@
+{
+    "config": {
+        "network-interface":{
+            "help": "options are ETHERNET,WIFI,MESH_LOWPAN_ND,MESH_THREAD",
+            "value": "ETHERNET"
+        },
+	"shutdown-button-enable":{
+	    "help": "enable the K64F use of SWx for the deregistation/shutdown button",
+	    "value": "true"
+	},
+        "shutdown-pin": {
+            "help": "which shutdown button should be used as the deregistation/shutdown button",
+            "value": "SW3"
+        }
+    },
+    "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_mbed_client_config.h\""],
+    "target_overrides": {
+        "*": {
+            "target.features_add": ["CLIENT", "COMMON_PAL"],
+            "mbed-client.reconnection-count": 3,
+            "mbed-client.reconnection-interval": 5
+        }
+    }
+}
