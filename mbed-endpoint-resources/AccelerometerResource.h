@@ -83,7 +83,10 @@ public:
         // we have to wait until the main loop starts in the endpoint before we create our thread... 
         if (this->m_motion_processor == NULL) {
             // create the processing thread
-            this->m_motion_processor = new Thread(_motion_processor);
+            this->m_motion_processor = new Thread();
+	    if (this->m_motion_processor != NULL) {
+		this->m_motion_processor->start(callback(_motion_processor,(const void *)NULL));
+	    }
         }
         
         // rest of GET() method
